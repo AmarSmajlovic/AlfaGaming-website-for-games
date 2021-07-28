@@ -1,0 +1,38 @@
+<div  class="adminContainer">
+    <div class="d-flex justify-content-around">
+        <div  [class.active]="active == 'users'" (click)="active = 'users'" class="containerUser d-flex justify-content-around align-items-center">
+           <div class="icon"><i class="fas fs-1 fa-users"></i></div>
+            <div class="text">
+                <p>Users</p>
+                <p>{{allUsers}}</p>
+            </div>
+        </div>
+        <div  [class.active]="active == 'products'" (click)="active = 'products'" class="containerProducts d-flex justify-content-around align-items-center">
+            <div class="icon"><i class="fas fs-1 fa-store"></i></div>
+            <div class="text">
+                <p>Products</p>
+                <p>{{allProducts}}</p>
+            </div>
+        </div>
+        <div [class.active]="active == 'genre'" (click)="active = 'genre'" class="containerGenre d-flex justify-content-around align-items-center">
+            <div class="icon"><i class="fas fs-1 fa-gamepad"></i></div>
+            <div class="text">
+                <p>Genres</p>
+                <p>{{allGenres}}</p>
+            </div>
+        </div>
+        <div [class.active]="active == 'platform'" (click)="active = 'platform'" class="containerPlatform d-flex justify-content-around align-items-center">
+            <div class="icon"><i class="fas fs-1 fa-dice-d6"></i></div>
+            <div class="text">
+                <p>Platforms</p>
+                <p>{{allPlatforms}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-admin-products *ngIf="active == 'products'"></app-admin-products>
+<app-admin-users *ngIf="active == 'users'"></app-admin-users>
+<app-admin-genre *ngIf="active == 'genre'"></app-admin-genre>
+<app-admin-platforms *ngIf="active == 'platform'"></app-admin-platforms>
+

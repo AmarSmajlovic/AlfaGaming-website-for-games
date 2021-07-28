@@ -1,0 +1,16 @@
+<div class="login-form">
+  <h1 class="mb-4 text-center">Welcome home, player!</h1>
+  <p id="error-message" class="text-danger text-center">Your login information is incorrect!</p>
+    <div class="form-group">
+      <input [(ngModel)]="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email or username">
+      <i class="icon fas fa-user"></i>
+    </div>
+    <div class="form-group">
+      <input [(ngModel)]="password" type="password" class="form-control" id="exampleInputPassword1" (keyUp.enter)="login()" placeholder="Password">
+      <i  class="icon fas fa-unlock"></i>
+    </div>
+    <div class="buttons mt-3">
+      <button (click)="login()" type="submit" id="loginBtn" class="mb-1 btn btn-primary">SIGN IN</button>
+      <p class="p-2 text-center newaccP">or <a href="register" class="anewaccP2">CREATE NEW ACCOUNT</a></p>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="header">
+    <div class="header-container">
+        <div id="naslov" routerLink="home" routerLinkActive="active"><img src="https://pbs.twimg.com/profile_images/636298294277246976/cDq4C60K.jpg" alt="logo"><span class="naslovTekst">AlfaGaming </span></div>
+        <div class="nav">
+            <div  class="navDivIcon icon" routerLink="listing" routerLinkActive="active"><i class="fas fs-4 fa-store"></i></div>
+            <div *ngIf="userService.loggedUser.id" class="navDivIcon icon" routerLink="whishlist" routerLinkActive="active"><i class="fas fs-4 fa-heart"></i></div>
+           <div  *ngIf="userService.loggedUser.id" class="navDivIcon icon" routerLink="cart" routerLinkActive="active"><i class="fas fs-4 fa-shopping-cart"></i></div>
+           <div  *ngIf="userService.loggedUser.role && userService.loggedUser.role == 'ADMIN'" class="navDivIcon icon" routerLink="admin" routerLinkActive="active"><i class="fas fs-4 fa-tools"></i></div>
+           <div  *ngIf="userService.loggedUser.role && userService.loggedUser.role == 'ADMIN'" class="navDivIcon icon"  (click)="showProfile(userService.loggedUser.id)" routerLinkActive="active">{{userService.loggedUser.username}} <i class="fas fs-4 fa-user-cog"></i></div>
+           <div *ngIf="userService.loggedUser.id && userService.loggedUser.role != 'ADMIN'" class="navDivIcon icon" (click)="showProfile(userService.loggedUser.id)">{{userService.loggedUser.username}} <i class="fas fs-4 fa-user"></i></div>
+           <div *ngIf="!userService.loggedUser.id" class="navDivIcon icon" routerLink="signin" routerLinkActive="active"><i class="far fs-4 fa-user"></i><span class="p-1"> Sign in</span></div>
+           <div  class="navDivIcon" (click)="showMenu($event)" routerLinkActive="active" >  <div id="hamburger" class="none" (click)="activeHamburger()">
+            <div id="bar1" class="bar"></div>
+            <div id="bar2" class="bar"></div>
+            <div id="bar3" class="bar"></div>
+        </div></div>
+           <div *ngIf="isShow" class="menu_nav">
+            <ul>
+                <li *ngIf="!userService.loggedUser.id" class="navDivIcon mobIcon" routerLink="signin" routerLinkActive="active"><i class="menu-icon far fa-user"></i><span class="p-1"> Sign in</span></li>
+                <li  *ngIf="userService.loggedUser.role && userService.loggedUser.role == 'ADMIN'" class="navDivIcon mobIcon" (click)="showProfile(userService.loggedUser.id)" routerLinkActive="active"><i class="menu-icon fas fa-user-cog"></i> {{userService.loggedUser.username}} </li>
+                <li  *ngIf="userService.loggedUser.role && userService.loggedUser.role == 'ADMIN'" class="navDivIcon mobIcon" routerLink="admin" routerLinkActive="active"><i class="menu-icon  fas fa-tools"></i> Admin Service</li>
+                <li *ngIf="userService.loggedUser.id && userService.loggedUser.role != 'ADMIN'" class="navDivIcon mobIcon" (click)="showProfile(userService.loggedUser.id)"><i class="menu-icon fas fa-user"></i> {{userService.loggedUser.username}}</li>
+                <li  *ngIf="userService.loggedUser.id" class="navDivIcon mobIcon" routerLink="cart" routerLinkActive="active"><i class="menu-icon fas fa-shopping-cart"></i> Cart</li>
+                <li *ngIf="userService.loggedUser.id" class="navDivIcon mobIcon" routerLink="whishlist" routerLinkActive="active"><i class="menu-icon fas fa-heart"></i> Whishlist</li>
+                <li ><i class="menu-icon fas fa-question-circle"></i> FAQ</li>
+                <li ><i class="menu-icon fas fa-palette" (click)="changeTheme()"></i> Theme : Dark</li>
+                <li *ngIf="userService.loggedUser.id" (click)="signOut()"><i class="menu-icon fas  fa-sign-out-alt"></i> Sign out</li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,70 @@
+.productDetailsContainer {
+  margin: 150px auto;
+  h1 {
+    font-size: 3em;
+  }
+  .details {
+    width: 75%;
+    border-radius: 20px;
+    .details-body {
+      button {
+        border-radius: 5px;
+        background-color: #8d99aeff;
+        border: none;
+        font-weight: bold;
+        color: white;
+        transition: 0.4s;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.03);
+          opacity: 0.9;
+        }
+      }
+
+      .priceContainer {
+        .disscount {
+          font-size: 2.5em;
+          font-weight: bold;
+          margin-right: 20px;
+          margin-bottom: 10px;
+          align-self: flex-end;
+        }
+        .price {
+          .oldPrice {
+            font-size: 2em;
+            text-decoration: line-through;
+          }
+          .currentPrice {
+            font-size: 3.5em;
+            font-weight: bold;
+          }
+        }
+      }
+
+      .disscount {
+        color: red;
+      }
+    }
+    .details-footer {
+      .addCartBtn {
+        transition: 0.4s;
+        font-weight: bold;
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+      .heart {
+        color: red;
+        transition: 0.4s;
+        cursor: pointer;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
+
+.description {
+  font-size: 1.1em;
+}

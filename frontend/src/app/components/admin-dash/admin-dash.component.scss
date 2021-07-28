@@ -1,0 +1,42 @@
+.adminContainer {
+  margin: 150px auto;
+}
+
+.containerUser,
+.containerProducts,
+.containerGenre,
+.containerPlatform {
+  width: 20%;
+  border: 3px solid #2b2d42ff;
+  cursor: pointer;
+  border-radius: 5px;
+  color: gray;
+  &:hover {
+    opacity: 0.9;
+  }
+  p {
+    padding-top: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+
+.containerUser {
+  background-color: #0084f8b6;
+}
+
+.containerProducts {
+  background-color: #04f30074;
+}
+
+.containerGenre {
+  background-color: #fa960074;
+}
+
+.containerPlatform {
+  background-color: #ff04006e;
+}
+
+.active {
+  color: black;
+}

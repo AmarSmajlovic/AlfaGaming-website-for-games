@@ -1,0 +1,31 @@
+<div class="register-form">
+  <div class="info text-center" *ngIf="uname.errors?.minlength">
+    Password must be at least 6 characters long.
+</div> 
+    <h1 class="mb-4 text-center">Become family member</h1>
+      <div class="form-group">
+        <input type="text" class="form-control" id="firstName" minlength="5" placeholder="First name" [(ngModel)]="user.first_name">
+        <i class="icon fas fa-user"></i>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="lastName"  placeholder="Last name" [(ngModel)]="user.last_name">
+        <i class="icon fas fa-user"></i>
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email" [(ngModel)]="user.email">
+        <i class="icon fas fa-envelope"></i>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" id="password" placeholder="Password" [(ngModel)]="user.password" minlength="6" #uname="ngModel">
+        <i class="icon fas fa-unlock"></i>
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" id="username" minlength="5"  placeholder="Username" [(ngModel)]="user.username" >
+        <i class="icon fas fa-user"></i>
+      </div>
+      <div class="buttons mt-3">
+        <button type="submit" id="loginBtn" class="mb-1 btn btn-primary" (click)="registerUser()" [disabled]="!user.first_name || !user.last_name || !user.email || !user.password || user.username">REGISTER</button>
+        <p class="p-2 text-center newaccP">or <a href="signin" class="anewaccP2">LOGIN</a></p>
+      </div>
+  </div>
+  

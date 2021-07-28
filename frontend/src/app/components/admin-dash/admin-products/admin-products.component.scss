@@ -1,0 +1,23 @@
+#exampleModal {
+  .modal-body {
+    label {
+      color: gray;
+      font-weight: bold;
+    }
+  }
+  .form-control {
+    color: gray;
+  }
+}
+
+.genre-select {
+  margin-bottom: 25px;
+  select {
+    color: gray;
+  }
+}
+
+select,
+input {
+  color: gray;
+}

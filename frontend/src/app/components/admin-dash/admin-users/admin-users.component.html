@@ -1,0 +1,66 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title fw-bold" id="exampleModalLabel">Update user</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="form">
+          <div class="mb-4">
+            <input type="text" disabled [(ngModel)]="user.first_name" placeholder="first name" class="form-control" id="first_name">
+          </div>
+          <div class="mb-4">
+              <input type="text" disabled [(ngModel)]="user.last_name" placeholder="last name" class="form-control" id="last_name">
+            </div>
+            <div class="mb-4">
+              <input type="text" disabled [(ngModel)]="user.email" placeholder="email" class="form-control" id="email">
+            </div>
+            <div class="mb-4">
+              <input type="text" disabled [(ngModel)]="user.username" placeholder="username" class="form-control" id="username">
+            </div>
+            <div class="mb-4">
+              <select [(ngModel)]="user.role" class="form-select" aria-label="Default select example">
+                <option value="ADMIN">ADMIN</option>
+                <option value="USER">USER</option>
+              </select>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button (click)="updateUser()"  type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<table class="table table-dark table-hover mt-5">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">First name</th>
+        <th scope="col">Last name</th>
+        <th scope="col">email</th>
+        <th scope="col">username</th>
+        <th scope="col">role</th>
+        <th scope="col">status</th>
+        <th scope="col">Edit user</th>
+        <th scope="col">Delete user</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <th scope="row">{{user.id}}</th>
+        <td>{{user.first_name}}</td>
+        <td>{{user.last_name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.role}}</td>
+        <td>{{user.status}}</td>
+        <th scope="col"><button type="button" class="btn btn-outline-light" (click)="populateModal(user)"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Edit <i class="far fa-edit"></i></button></th>
+        <th scope="col"><button type="button" class="btn btn-outline-danger" (click)="deleteUser(user.id)">Delete <i class="far fa-trash-alt"></i></button></th>
+      </tr>
+    </tbody>
+  </table>

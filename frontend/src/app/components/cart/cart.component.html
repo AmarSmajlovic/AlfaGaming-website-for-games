@@ -1,0 +1,28 @@
+<div class="cart-container">
+    <div class="noProductsInCart" >
+        <h1>Your cart is empty.</h1>
+        <p>Use search to find what you are looking for or explore <a href="home">Homepage</a></p>
+    </div>
+    <div class="productsCart"  >
+        <h1>Cart products</h1> 
+                  <div class="products d-flex  flex-wrap">
+                    <div  class="product" *ngFor="let product of products" [product]="product">
+                        <div class="product-header">
+                            <div class="remove" (click)="removeFromCart(product.id)">X</div>
+                          <img src="{{product.main_image}}" class="card-img-top" alt="product_image">
+                          <h1 *ngIf="product.disscount" class="disscount">-{{product.disscount}}%</h1>
+                        </div>
+                          <div class="product-body">
+                            <h2 class="product-title text-center">{{product.name}}</h2>
+                            <div class="product-text p-3 d-flex align-items-center justify-content-center">
+                              <h1 class="price text-center">{{product.price-(product.price*product.disscount)/100}}€</h1>
+                              <h2 class="oldPrice" *ngIf="product.disscount">{{product.price}}€</h2>
+                            </div>
+                          </div>
+                        </div>
+              </div>
+    <h1>Total: total</h1>
+    <button type="button" class="buyBtn btn btn-primary" (click)="buyProducts()">Buy</button>
+    </div>
+</div>
+    

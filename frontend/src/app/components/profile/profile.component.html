@@ -1,0 +1,40 @@
+<div class="profileContainer w-75" *ngFor="let user of userInfo">
+    <div class="headerContainer d-flex justify-content-between">
+        <div class="avatar w-50 d-flex flex-column align-items-center">
+            <img src="http://assets.stickpng.com/images/585e4bf3cb11b227491c339a.png" alt="userlogo">
+            <h3 class="text-center">Member since: {{user.since}}</h3>
+        </div>
+        <div class="personalInfo ">
+            <p>First name: {{user.first_name}}</p>
+            <p>Last name: {{user.last_name}}</p>
+            <p>Username : {{user.username}}</p>
+            <p>email : {{user.email}}</p>
+            <p>role : {{user.role}}</p>
+        </div>
+    </div>
+    <div class="bodyContainer text-center">
+        <div class="whishlistContainer">
+         <h2>Whishlist</h2>
+        </div>
+        <div class="cartContainer">
+            <h2 class="text-start">Done products</h2>
+            <table class="table table-dark table-hover mt-5">
+                <thead>
+                  <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of products" [product]="product">
+                    <th scope="row">{{product.name}}</th>
+                    <td><img src="{{product.main_image}}" class="w-5" alt="productimage"></td>
+                    <th scope="col">{{product.price}}€</th>
+                  </tr>
+                </tbody>
+              </table>
+            
+           </div>
+    </div>
+</div>
