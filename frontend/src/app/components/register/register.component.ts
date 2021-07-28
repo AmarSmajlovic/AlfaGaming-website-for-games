@@ -23,9 +23,8 @@ export class RegisterComponent implements OnInit {
   registerUser(){
    this.userService.registerUser(this.user).subscribe(response=>{
      this.toastrService.success('Congratualtions,You have successfully registered')
+     this.router.navigateByUrl('login');
    })
-   this.router.navigateByUrl('login');
-   
   }
 
  

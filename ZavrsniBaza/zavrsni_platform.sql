@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: localhost    Database: zavrsni_rad_drugi
+-- Host: localhost    Database: zavrsni
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -16,27 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `genre`
+-- Table structure for table `platform`
 --
 
-DROP TABLE IF EXISTS `genre`;
+DROP TABLE IF EXISTS `platform`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `genre` (
+CREATE TABLE `platform` (
   `id` int NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `genre`
+-- Dumping data for table `platform`
 --
 
-LOCK TABLES `genre` WRITE;
-/*!40000 ALTER TABLE `genre` DISABLE KEYS */;
-INSERT INTO `genre` VALUES (1,'Action'),(2,'Adventure'),(3,'Arcade'),(4,'FPS'),(5,'Free to Play'),(6,'Multiplayer'),(14,'Sport');
-/*!40000 ALTER TABLE `genre` ENABLE KEYS */;
+LOCK TABLES `platform` WRITE;
+/*!40000 ALTER TABLE `platform` DISABLE KEYS */;
+INSERT INTO `platform` VALUES (12,'Steam'),(13,'Origin'),(14,'Other Platform');
+/*!40000 ALTER TABLE `platform` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-28 13:29:31
+-- Dump completed on 2021-07-28 16:12:20

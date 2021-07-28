@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: localhost    Database: zavrsni_rad_drugi
+-- Host: localhost    Database: zavrsni
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -33,7 +33,7 @@ CREATE TABLE `cart` (
   KEY `fk_product_id_idx` (`product_id`),
   CONSTRAINT `fk_customer_cart_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
   CONSTRAINT `fk_product_cart_id` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES (17,1,2,'REMOVED',NULL),(19,1,2,'REMOVED',NULL),(21,1,1,'PENDING',NULL);
+INSERT INTO `cart` VALUES (29,13,40,'DONE',NULL),(31,13,40,'REMOVED',NULL),(32,13,41,'REMOVED',NULL),(33,13,40,'DONE',NULL);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-28 13:29:31
+-- Dump completed on 2021-07-28 16:12:19

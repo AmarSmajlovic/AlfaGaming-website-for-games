@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: localhost    Database: zavrsni_rad_drugi
+-- Host: localhost    Database: zavrsni
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -16,36 +16,27 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `customer`
+-- Table structure for table `genre`
 --
 
-DROP TABLE IF EXISTS `customer`;
+DROP TABLE IF EXISTS `genre`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `customer` (
+CREATE TABLE `genre` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `first_name` varchar(45) NOT NULL,
-  `last_name` varchar(45) NOT NULL,
-  `email` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `role` varchar(45) DEFAULT 'USER',
-  `since` date DEFAULT NULL,
-  `status` varchar(45) DEFAULT 'ACTIVE',
-  PRIMARY KEY (`id`,`first_name`),
-  UNIQUE KEY `email_UNIQUE` (`email`) /*!80000 INVISIBLE */,
-  UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+  `name` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `customer`
+-- Dumping data for table `genre`
 --
 
-LOCK TABLES `customer` WRITE;
-/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'Amar','Smajlovic','amar@gmail.com','123123','smajla','ADMIN','2021-07-20','ACTIVE'),(2,'Arman','Smajlovic','arman@gmail.com','123456','spanjc','USER','2021-07-25','ACTIVE'),(11,'Ajdin','Smajlovic','ajdin@gmail.com','ajdin123','ajdo','USER',NULL,'BANNED');
-/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
+LOCK TABLES `genre` WRITE;
+/*!40000 ALTER TABLE `genre` DISABLE KEYS */;
+INSERT INTO `genre` VALUES (19,'Sport'),(20,'Action'),(21,'MOBA'),(22,'Adventure'),(23,'FPS');
+/*!40000 ALTER TABLE `genre` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -57,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-28 13:29:31
+-- Dump completed on 2021-07-28 16:12:19

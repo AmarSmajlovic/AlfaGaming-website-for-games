@@ -24,7 +24,7 @@
         <i class="icon fas fa-user"></i>
       </div>
       <div class="buttons mt-3">
-        <button type="submit" id="loginBtn" class="mb-1 btn btn-primary" (click)="registerUser()" [disabled]="!user.first_name || !user.last_name || !user.email || !user.password || user.username">REGISTER</button>
+        <button type="submit" id="loginBtn" class="mb-1 btn btn-primary" (click)="registerUser()" [disabled]="!user.email || !user.username || !user.password || !user.first_name || !user.last_name">REGISTER</button>
         <p class="p-2 text-center newaccP">or <a href="signin" class="anewaccP2">LOGIN</a></p>
       </div>
   </div>

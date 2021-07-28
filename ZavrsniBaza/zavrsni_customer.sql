@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: localhost    Database: zavrsni_rad_drugi
+-- Host: localhost    Database: zavrsni
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -16,29 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `payment`
+-- Table structure for table `customer`
 --
 
-DROP TABLE IF EXISTS `payment`;
+DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `payment` (
-  `customer_id` int NOT NULL,
-  `product_id` int NOT NULL,
-  KEY `fk_product_id_idx` (`customer_id`),
-  KEY `fk_payment_product1_idx` (`product_id`),
-  KEY `fk_payment_customer1_idx` (`customer_id`),
-  CONSTRAINT `fk_payment_product1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `customer` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(45) NOT NULL,
+  `last_name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `role` varchar(45) DEFAULT 'USER',
+  `since` date DEFAULT NULL,
+  `status` varchar(45) DEFAULT 'ACTIVE',
+  PRIMARY KEY (`id`,`first_name`),
+  UNIQUE KEY `email_UNIQUE` (`email`) /*!80000 INVISIBLE */,
+  UNIQUE KEY `username_UNIQUE` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `payment`
+-- Dumping data for table `customer`
 --
 
-LOCK TABLES `payment` WRITE;
-/*!40000 ALTER TABLE `payment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `payment` ENABLE KEYS */;
+LOCK TABLES `customer` WRITE;
+/*!40000 ALTER TABLE `customer` DISABLE KEYS */;
+INSERT INTO `customer` VALUES (13,'Amar','Smajlovic','amar@gmail.com','amar123','smajla','ADMIN',NULL,'ACTIVE'),(14,'Arman','Smajlovic','arman@gmail.com','arman123','arci','USER',NULL,'ACTIVE');
+/*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -50,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-28 13:29:32
+-- Dump completed on 2021-07-28 16:12:20

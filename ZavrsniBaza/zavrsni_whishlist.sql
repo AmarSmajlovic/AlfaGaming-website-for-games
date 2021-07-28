@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
 --
--- Host: localhost    Database: zavrsni_rad_drugi
+-- Host: localhost    Database: zavrsni
 -- ------------------------------------------------------
 -- Server version	8.0.25
 
@@ -16,27 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `platform`
+-- Table structure for table `whishlist`
 --
 
-DROP TABLE IF EXISTS `platform`;
+DROP TABLE IF EXISTS `whishlist`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `platform` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `whishlist` (
+  `customer_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  KEY `fk_product_id_idx` (`customer_id`),
+  KEY `fk_payment_product1_idx` (`product_id`),
+  KEY `fk_payment_customer1_idx` (`customer_id`),
+  CONSTRAINT `fk_payment_product1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
+  CONSTRAINT `fk_whishlist_user` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `platform`
+-- Dumping data for table `whishlist`
 --
 
-LOCK TABLES `platform` WRITE;
-/*!40000 ALTER TABLE `platform` DISABLE KEYS */;
-INSERT INTO `platform` VALUES (1,'Steam'),(2,'Origin'),(3,'Rockstar'),(4,'Epic'),(5,'Battle.net'),(11,'Other Platform');
-/*!40000 ALTER TABLE `platform` ENABLE KEYS */;
+LOCK TABLES `whishlist` WRITE;
+/*!40000 ALTER TABLE `whishlist` DISABLE KEYS */;
+/*!40000 ALTER TABLE `whishlist` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-28 13:29:31
+-- Dump completed on 2021-07-28 16:12:20
