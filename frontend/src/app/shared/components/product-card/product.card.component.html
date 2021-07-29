@@ -5,10 +5,12 @@
   </div>
     <div class="product-body">
       <h2 class="product-title text-center">{{product.name}}</h2>
-      <div class="product-text p-3 d-flex align-items-center justify-content-between">
-        <i class="fas fs-2 whishIcon fa-heart"></i>
-        <h1 class="price text-center">{{product.price-(product.price*product.disscount)/100}}€</h1>
-        <h2 class="oldPrice" *ngIf="product.disscount">{{product.price}}€</h2>
+      <div class="product-text d-flex align-items-center justify-content-between">
+        <div (click)="addToWhishlist(product.id)"><i class="fas fs-2 whishIcon fa-heart"></i></div>
+        <div class="d-flex flex-column align-items-center">
+          <h2 class="oldPrice" *ngIf="product.disscount">{{product.price}}€</h2>
+          <h1 class="price text-center">{{product.price-(product.price*product.disscount)/100}}€</h1>
+        </div>
         <div  (click)="addToCart(product.id)"><i class="fas fs-2 cartIcon fa-cart-plus"></i></div>
       </div>
     </div>

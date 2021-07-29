@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/testing';
 import { Router } from '@angular/router';
 import { NgbPanelToggle } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { BadgeService } from 'src/app/shared/services/badge.service';
+import { CartServiceService } from 'src/app/shared/services/cart-service.service';
 import { UserService } from 'src/app/shared/services/User.service';
+import { WhishlistServiceService } from 'src/app/shared/services/whishlist-service.service';
 import { __classPrivateFieldSet } from 'tslib';
 import { MenuComponent } from '../menu/menu.component';
 
@@ -16,8 +19,12 @@ import { MenuComponent } from '../menu/menu.component';
   }
 })
 export class HeaderComponent implements OnInit {
+  
   isShow = false;
   public isMobileLayout = false;
+  allProducts:number = 0;
+  allCartProducts:number = 0;
+  products9:string = '9+';
 
   showMenu($event){
     $event.stopPropagation();
@@ -31,9 +38,23 @@ export class HeaderComponent implements OnInit {
   }
   
 
-  constructor(public userService:UserService,private toastrService:ToastrService,private router:Router) { }
+  constructor(
+    public userService:UserService,
+    private toastrService:ToastrService,
+    private router:Router,
+    private whishlistService:WhishlistServiceService,
+    private cartService:CartServiceService,
+    private badgeService: BadgeService
+    ) { }
  
   ngOnInit(): void {
+  //  this.countWhishlist();
+    this.countCart();
+
+    this.badgeService.badge.subscribe(badge =>{
+      console.log(badge)
+      this.allProducts = badge.allProducts
+    })
   }
 
   signOut(){
@@ -49,6 +70,20 @@ export class HeaderComponent implements OnInit {
 
   showProfile(id:number){
     this.router.navigateByUrl(`/profile/${id}`);
+  }
+
+  countWhishlist(){
+    this.whishlistService.getCountWhishlist().subscribe(response=>{
+      if(this.allProducts > 9) this.allProducts=response['products9'];
+      else this.allProducts=response['allProducts'];
+    })
+  }
+
+  countCart(){
+    this.cartService.getCountCart().subscribe(response=>{
+      if(this.allCartProducts > 9) this.allCartProducts=response['products9'];
+      else this.allCartProducts=response['allCartProducts'];
+    })
   }
 
 

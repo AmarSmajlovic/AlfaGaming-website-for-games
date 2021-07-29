@@ -25,7 +25,7 @@
               </div>
               <div class="mb-4">
                 <select class="form-select"  [(ngModel)]="product.platform_id" aria-label="Default select example">
-                  <option selected value="-1">Select platform</option>
+                  <option selected value ="0">Select platform</option>
                   <option *ngFor="let plat of platform" value="{{plat.id}}">{{plat.name}}</option>
                 </select>
               </div>

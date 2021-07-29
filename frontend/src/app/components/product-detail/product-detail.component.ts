@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CartServiceService } from 'src/app/shared/services/cart-service.service';
 import { ProductServiceService } from 'src/app/shared/services/product-service.service';
 import { UserService } from 'src/app/shared/services/User.service';
+import { WhishlistServiceService } from 'src/app/shared/services/whishlist-service.service';
 import { Product } from '../admin-dash/admin-products/product.module';
 
 @Component({
@@ -13,7 +14,7 @@ import { Product } from '../admin-dash/admin-products/product.module';
 })
 export class ProductDetailComponent implements OnInit {
 
-  productDetail:any = [];
+  product:any = [];
 
   constructor(
     private productService:ProductServiceService,
@@ -21,7 +22,8 @@ export class ProductDetailComponent implements OnInit {
     private router : Router,
     private toastr: ToastrService,
     private cartService: CartServiceService,
-    private userService:UserService
+    private userService:UserService,
+    private whishlistService:WhishlistServiceService
     ) { }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class ProductDetailComponent implements OnInit {
 
   getProductDetails(id:number){
     this.productService.getProductById(id).subscribe(response=>{
-        this.productDetail=response;
+        this.product=response;
     });
   }
 
@@ -45,6 +47,15 @@ export class ProductDetailComponent implements OnInit {
   })
  }
 }
+
+addToWhishlist(id:number){
+  if(!this.userService.loggedUser.id){
+    this.toastr.warning('You must be logged to add to whishlist!');
+    this.router.navigateByUrl('signin');
+}
+if(this.userService.loggedUser.id){ this.whishlistService.addToWhishlist(id).subscribe(response=>{
+    this.toastr.success('Susscessfully added to whishlist');        
+})}};
 }
 
 

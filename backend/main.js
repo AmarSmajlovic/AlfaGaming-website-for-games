@@ -6,7 +6,8 @@ const { getAllCustomers, getCustomerById, registrateCustomer, loginUser, deleteU
 const { getAllProducts, getProductById, getProductByGenre, getProductByPlatform, addProduct, deleteProduct, updateProduct, countProduct, disscount20Product, filterProducts, getProductByName} = require('./controller/product-controller');
 const { getAllGenre, getGenreById, deleteGenre, addGenre, updateGenre, countGenre } = require('./controller/genre-controller');
 const { getAllPlatforms, addPlatform, deletePlatform, updatePlatform, countPlatform } = require('./controller/platform-controller');
-const {addToCart, getProductsFromCart, buyProductsFromCart, removeProductFromCart, getBuyProducts} = require('./controller/cart-controller');
+const {addToCart, getProductsFromCart, buyProductsFromCart, removeProductFromCart, getBuyProducts, getCartCount} = require('./controller/cart-controller');
+const { addToWhishlist, getProductsFromWhishlist, removeProductFromWhishlist, getWhishlistCount } = require('./controller/whishlist-controller');
 
 app.use(express.json())
 app.use(cors());
@@ -65,8 +66,16 @@ app.get('/getProductsFromCart/:id',getProductsFromCart);
 app.get('/buyProductsFromCart/:id',buyProductsFromCart);
 app.put('/removeProductFromCart',removeProductFromCart);
 app.get('/getBuyProducts/:id',getBuyProducts);
+app.get('/getCartCount/:id',getCartCount);
 //Cart API End//
 
+//Whishlist API Start//
+
+app.post('/addToWhishlist',addToWhishlist);
+app.get('/getProductsFromWhishlist/:id',getProductsFromWhishlist);
+app.put('/removeProductFromWhishlist',removeProductFromWhishlist);
+app.get('/getCountFromWhishlist/:id',getWhishlistCount);
+//Whishlist API End//
 
 app.listen(PORT,()=>{
     console.log(`Application is started at ${PORT} PORT!`);

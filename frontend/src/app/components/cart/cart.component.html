@@ -1,9 +1,9 @@
 <div class="cart-container">
-    <div class="noProductsInCart" >
+    <div class="noProductsInCart" *ngIf="!products?.length">
         <h1>Your cart is empty.</h1>
-        <p>Use search to find what you are looking for or explore <a href="home">Homepage</a></p>
+        <p>Use search to find what you are looking for or explore <a href="listing">Store</a></p>
     </div>
-    <div class="productsCart"  >
+    <div class="productsCart"  *ngIf="products?.length">
         <h1>Cart products</h1> 
                   <div class="products d-flex  flex-wrap">
                     <div  class="product" *ngFor="let product of products" [product]="product">
@@ -21,7 +21,7 @@
                           </div>
                         </div>
               </div>
-    <h1>Total: total</h1>
+    <h1>Total: {{total}}</h1>
     <button type="button" class="buyBtn btn btn-primary" (click)="buyProducts()">Buy</button>
     </div>
 </div>

@@ -27,4 +27,9 @@ export class CartServiceService {
     getBuyProducts(){
         return this.http.get(`${environment.serverUrl}/getBuyProducts/${this.userService.loggedUser.id}`);
     }
+    
+    getCountCart(){
+        return this.http.get(`${environment.serverUrl}/getCartCount/${this.userService.loggedUser.id}`)
+    }
+
 }

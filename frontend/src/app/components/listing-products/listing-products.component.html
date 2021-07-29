@@ -20,7 +20,7 @@
              <label for="priceTo"  class="m-1">To</label>
              <input id="priceTo" [(ngModel)]="priceTo" type="text" placeholder="price">
         </div>
-          <button type="button" class="btn btn-outline-info filterBtn  w-25" (click)="filterProducts()">Filter</button>
+          <button type="button" class="btn btn-outline-info filterBtn  w-25 col-md-3" (click)="filterProducts()">Filter</button>
     </div>
       <div class="display-products mt-5 d-flex flex-wrap justify-content-center">
           <app-product-card  *ngFor="let item of product" [product]="item"></app-product-card>

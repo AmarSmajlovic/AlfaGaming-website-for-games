@@ -9,10 +9,10 @@ const getAllProducts = (req,res)=>{
 
 const getProductById = (req,res)=>{
     const id = req.params.id;
-    const sql = `SELECT a.name as productName,a.*,b.name as genreName,b.*,c.name as platformName FROM product a INNER JOIN genre b  ON  a.genre_id = b.id INNER JOIN platform c ON a.platform_id = c.id WHERE a.id= ?`;
+    const sql = `SELECT a.name as productName,a.*,b.name as genreName,c.name as platformName FROM product a INNER JOIN genre b  ON  a.genre_id = b.id INNER JOIN platform c ON a.platform_id = c.id WHERE a.id= ?`;
     conn.query(sql,[id],(err,results)=>{
         if(err) throw err;
-        res.status(200).json(results);
+        res.status(200).json(results[0] || {});
     })
 };
 
@@ -84,12 +84,14 @@ const disscount20Product = (req,res)=>{
     })
 }
 
+
+
 const filterProducts = (req,res)=>{
     const {genre_id,platform_id,priceBetween,priceTo} = req.query;
     let sql = `SELECT * FROM product WHERE 1=1`;
-    if(genre_id) sql += ` AND genre_id = ${genre_id}`;
-    if(platform_id) sql += ` AND platform_id = ${platform_id} `;
-    if(priceBetween && priceTo) sql += ` AND price BETWEEN ${priceBetween} AND ${priceTo} `;
+    if(genre_id !== 'undefined' && genre_id) sql += ` AND genre_id = ${genre_id}`;
+    if(platform_id !== 'undefined' && platform_id) sql += ` AND platform_id = ${platform_id} `;
+    if(priceBetween !== 'undefined' && priceBetween  && priceTo !== 'undefined' && priceTo) sql += ` AND price BETWEEN ${priceBetween} AND ${priceTo} `;
     conn.query(sql,(err,result)=>{
         if(err)throw err;
         res.status(200).json(result);

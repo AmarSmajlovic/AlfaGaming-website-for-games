@@ -1,4 +1,4 @@
-<div class="productDetailsContainer" *ngFor="let product of productDetail">
+<div class="productDetailsContainer">
     <div class="detailsContainer-header d-flex justify-content-between">
         <div class="image">
             <img src="{{product.main_image}}" alt="image">
@@ -8,8 +8,8 @@
                 <h1 >{{product.productName}}</h1>
             </div>
             <div class="details-body">
-                <div class="platform-product"><button>{{product.platformName}} </button></div>
-                <div class="genre-product m-3"><button>{{product.genreName}}</button></div>
+                <div class="platform-product" *ngIf="product.platformName"><button>{{product.platformName}} </button></div>
+                <div class="genre-product m-3" *ngIf="product.genreName"><button>{{product.genreName}}</button></div>
                 <div class="priceContainer d-flex justify-content-center align-items-center">
                     <div class="disscount" *ngIf="product.disscount">-{{product.disscount}}%</div>
                     <div class="price d-flex flex-column">
@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="details-footer d-flex align-items-center justify-content-center">
-                <i class="fas heart fs-1 fa-heart"></i>
+                <div (click)="addToWhishlist(product.id)"><i class="fas heart fs-1 fa-heart"></i></div>
              <button  type="button" (click)="addToCart(product.id)" class="addCartBtn w-50 m-4 p-3 btn btn-outline-success">Add to cart <i class="fas fa-cart-plus"></i></button>
             </div>
         </div>

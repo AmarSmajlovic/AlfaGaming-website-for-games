@@ -45,4 +45,12 @@ const removeProductFromCart = (req,res)=>{
     })
 }
 
-module.exports = {addToCart,getProductsFromCart,buyProductsFromCart,removeProductFromCart,getBuyProducts};
+const getCartCount = (req,res)=>{
+    const id = req.params.id;
+    conn.query(`SELECT count(1) as allCartProducts from cart WHERE status = 'PENDING' AND customer_id = ?`,[id],(err,result)=>{
+        if(err) throw err;
+        res.status(200).json(result[0] || {});
+    })
+}
+
+module.exports = {addToCart,getProductsFromCart,buyProductsFromCart,removeProductFromCart,getBuyProducts,getCartCount};

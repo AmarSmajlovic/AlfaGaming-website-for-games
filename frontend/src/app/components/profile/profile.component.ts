@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CartServiceService } from 'src/app/shared/services/cart-service.service';
 import { UserServiceService } from 'src/app/shared/services/user-service.service';
+import { WhishlistServiceService } from 'src/app/shared/services/whishlist-service.service';
 import { User } from './User.module';
 
 @Component({
@@ -13,8 +14,9 @@ export class ProfileComponent implements OnInit {
 
    userInfo:any = [];
    products:any = [];
+   whishProducts:any = [];
 
-  constructor(private userService:UserServiceService,private router : ActivatedRoute,private cartService:CartServiceService) { }
+  constructor(private userService:UserServiceService,private router : ActivatedRoute,private cartService:CartServiceService,private whishlistService:WhishlistServiceService) { }
 
   ngOnInit(): void {
     this.getBuyProducts();
@@ -32,8 +34,6 @@ export class ProfileComponent implements OnInit {
     this.cartService.getBuyProducts().subscribe(response=>{
        this.products = response;
     })
-  }
-
-
+  };
 
 }

@@ -1,7 +1,7 @@
 .homeContainer {
   margin: 120px auto;
   h1 {
-    color: #8d99aeff;
+    color: #2b2d42ff;
     font-weight: bold;
     margin: 20px 5px;
   }
@@ -46,5 +46,11 @@
   }
   button {
     background-color: #8d99aeff;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .products {
+    justify-content: center;
   }
 }

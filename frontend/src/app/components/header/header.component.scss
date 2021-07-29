@@ -60,6 +60,18 @@ $gradient-left: linear-gradient(
   }
 }
 
+//badge
+.navDivIcon {
+  position: relative;
+  .badge {
+    background-color: red;
+    border-radius: 50%;
+    top: 10px;
+    left: 5px;
+    position: absolute;
+  }
+}
+
 ///hamburger icona//
 
 #hamburger {
@@ -114,6 +126,8 @@ $gradient-left: linear-gradient(
   border-bottom: 1px solid #2b2d42ff;
 }
 
+//responsive menu
+
 .menu_nav {
   cursor: pointer;
   z-index: 999;
@@ -124,6 +138,14 @@ $gradient-left: linear-gradient(
   min-width: 300px;
   color: white;
   opacity: 0.95;
+  .badge {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    padding: 2px;
+    top: 17px;
+    left: 27px;
+  }
   ul {
     margin: 0px;
     padding: 0px;
@@ -165,8 +187,6 @@ $gradient-left: linear-gradient(
 .mobIcon {
   display: none;
 }
-
-
 
 @media only screen and (max-width: 1200px) {
   .header {

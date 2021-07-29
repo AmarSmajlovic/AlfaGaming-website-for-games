@@ -3,8 +3,8 @@
         <div id="naslov" routerLink="home" routerLinkActive="active"><img src="https://pbs.twimg.com/profile_images/636298294277246976/cDq4C60K.jpg" alt="logo"><span class="naslovTekst">AlfaGaming </span></div>
         <div class="nav">
             <div  class="navDivIcon icon" routerLink="listing" routerLinkActive="active"><i class="fas fs-4 fa-store"></i></div>
-            <div *ngIf="userService.loggedUser.id" class="navDivIcon icon" routerLink="whishlist" routerLinkActive="active"><i class="fas fs-4 fa-heart"></i></div>
-           <div  *ngIf="userService.loggedUser.id" class="navDivIcon icon" routerLink="cart" routerLinkActive="active"><i class="fas fs-4 fa-shopping-cart"></i></div>
+            <div *ngIf="userService.loggedUser.id" class="navDivIcon icon" routerLink="whishlist" routerLinkActive="active"><i class="fas fs-4 fa-heart"></i><div *ngIf="allProducts != 0" class="badge">{{allProducts}}</div><div *ngIf="allProducts != 0 && allProducts >9" class="badge">{{products9}}</div></div>
+           <div  *ngIf="userService.loggedUser.id" class="navDivIcon icon" routerLink="cart" routerLinkActive="active"><i class="fas fs-4 fa-shopping-cart"></i><div *ngIf="allCartProducts != 0" class="badge">{{allCartProducts}}</div><div *ngIf="allCartProducts != 0 && allCartProducts >9" class="badge">{{products9}}</div></div>
            <div  *ngIf="userService.loggedUser.role && userService.loggedUser.role == 'ADMIN'" class="navDivIcon icon" routerLink="admin" routerLinkActive="active"><i class="fas fs-4 fa-tools"></i></div>
            <div  *ngIf="userService.loggedUser.role && userService.loggedUser.role == 'ADMIN'" class="navDivIcon icon"  (click)="showProfile(userService.loggedUser.id)" routerLinkActive="active">{{userService.loggedUser.username}} <i class="fas fs-4 fa-user-cog"></i></div>
            <div *ngIf="userService.loggedUser.id && userService.loggedUser.role != 'ADMIN'" class="navDivIcon icon" (click)="showProfile(userService.loggedUser.id)">{{userService.loggedUser.username}} <i class="fas fs-4 fa-user"></i></div>
@@ -20,8 +20,9 @@
                 <li  *ngIf="userService.loggedUser.role && userService.loggedUser.role == 'ADMIN'" class="navDivIcon mobIcon" (click)="showProfile(userService.loggedUser.id)" routerLinkActive="active"><i class="menu-icon fas fa-user-cog"></i> {{userService.loggedUser.username}} </li>
                 <li  *ngIf="userService.loggedUser.role && userService.loggedUser.role == 'ADMIN'" class="navDivIcon mobIcon" routerLink="admin" routerLinkActive="active"><i class="menu-icon  fas fa-tools"></i> Admin Service</li>
                 <li *ngIf="userService.loggedUser.id && userService.loggedUser.role != 'ADMIN'" class="navDivIcon mobIcon" (click)="showProfile(userService.loggedUser.id)"><i class="menu-icon fas fa-user"></i> {{userService.loggedUser.username}}</li>
-                <li  *ngIf="userService.loggedUser.id" class="navDivIcon mobIcon" routerLink="cart" routerLinkActive="active"><i class="menu-icon fas fa-shopping-cart"></i> Cart</li>
-                <li *ngIf="userService.loggedUser.id" class="navDivIcon mobIcon" routerLink="whishlist" routerLinkActive="active"><i class="menu-icon fas fa-heart"></i> Whishlist</li>
+                <li  class="navDivIcon mobIcon" routerLink="listing" routerLinkActive="active"><i class="menu-icon fas fa-store"></i> Store</li>
+                <li  *ngIf="userService.loggedUser.id" class="navDivIcon mobIcon" routerLink="cart" routerLinkActive="active"><i class="menu-icon fas fa-shopping-cart"></i> Cart<div *ngIf="allCartProducts != 0" class="badge">{{allCartProducts}}</div><div *ngIf="allCartProducts != 0 && allCartProducts >9" class="badge">{{products9}}</div></li>
+                <li *ngIf="userService.loggedUser.id" class="navDivIcon mobIcon" routerLink="whishlist" routerLinkActive="active"><i class="menu-icon fas fa-heart"></i> Whishlist<div *ngIf="allProducts != 0" class="badge">{{allProducts}}</div><div *ngIf="allProducts != 0 && allProducts >9" class="badge">{{products9}}</div></li>
                 <li ><i class="menu-icon fas fa-question-circle"></i> FAQ</li>
                 <li ><i class="menu-icon fas fa-palette" (click)="changeTheme()"></i> Theme : Dark</li>
                 <li *ngIf="userService.loggedUser.id" (click)="signOut()"><i class="menu-icon fas  fa-sign-out-alt"></i> Sign out</li>

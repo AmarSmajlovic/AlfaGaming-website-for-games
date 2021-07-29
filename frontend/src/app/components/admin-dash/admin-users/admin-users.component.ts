@@ -28,7 +28,7 @@ export class AdminUsersComponent implements OnInit {
   deleteUser(id:number){
     this.usersService.deleteUser(id).subscribe(result=>{
       this.getAllUsers();
-     this.toastr.success('User deleted!');
+     this.toastr.success('User banned!');
     })
   }
 

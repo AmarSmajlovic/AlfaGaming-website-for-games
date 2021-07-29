@@ -12,11 +12,9 @@
             <p>role : {{user.role}}</p>
         </div>
     </div>
-    <div class="bodyContainer text-center">
-        <div class="whishlistContainer">
-         <h2>Whishlist</h2>
-        </div>
-        <div class="cartContainer">
+    <div class="bodyContainer text-center">        
+        <div class="no-products mt-5" *ngIf="!products?.length">No buy products!</div>
+        <div class="cartContainer mt-5" *ngIf="products?.length" >
             <h2 class="text-start">Done products</h2>
             <table class="table table-dark table-hover mt-5">
                 <thead>

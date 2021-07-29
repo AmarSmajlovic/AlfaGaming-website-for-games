@@ -1,6 +1,6 @@
 .cart-container {
   text-align: center;
-  color: gray;
+  color: rgb(79, 79, 79);
   font-weight: bold;
   margin-top: 200px;
   h1 {
@@ -11,12 +11,12 @@
     color: #8d99aeff;
     font-weight: bold;
     &:hover {
-      border-bottom: 1px solid #8d99aeff;
+      border-bottom: 1px solid #2b2d42ff;
     }
   }
 }
 
-//CART
+//card
 .product {
   background-color: #8d99aeff;
   margin: 10px;

@@ -11,6 +11,7 @@
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   border: 2px solid #2b2d42ff;
   border-radius: 10px;
+  height: 450px;
   &:hover {
     transform: scale(1.04);
     .product-text {
@@ -42,13 +43,13 @@
     }
   }
   .product-body {
-    padding-bottom: 0px;
+    padding: 5px;
   }
   .product-text {
+    padding: 0;
     .price {
       font-weight: bold;
       font-size: 2.3em;
-      padding-top: 5px;
     }
     .whishIcon {
       color: red;
@@ -57,7 +58,7 @@
     }
     .cartIcon {
       color: green;
-      margin: 10px;
+      margin: 0px;
       opacity: 0;
     }
   }
@@ -70,4 +71,15 @@
 .oldPrice {
   text-decoration: line-through;
   color: gray;
+}
+
+.price {
+  padding-bottom: 40px;
+}
+
+.product-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 1.2em;
+  white-space: nowrap;
 }
