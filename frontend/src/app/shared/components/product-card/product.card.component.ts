@@ -45,7 +45,8 @@ export class ProductCardComponent implements OnInit {
              this.router.navigateByUrl('signin');
          }
          if(this.userService.loggedUser.id){ this.cartService.addToCart(id).subscribe(response=>{
-             this.toastr.success('Susscessfully added to cart');        
+             this.toastr.success('Susscessfully added to cart');     
+             this.badgeService.updateBadge();   
          })
         }
      };

@@ -48,13 +48,8 @@ export class HeaderComponent implements OnInit {
     ) { }
  
   ngOnInit(): void {
-  //  this.countWhishlist();
-    this.countCart();
-
-    this.badgeService.badge.subscribe(badge =>{
-      console.log(badge)
-      this.allProducts = badge.allProducts
-    })
+    this.badgeWhishlist();
+    this.badgeCart();
   }
 
   signOut(){
@@ -72,19 +67,16 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl(`/profile/${id}`);
   }
 
-  countWhishlist(){
-    this.whishlistService.getCountWhishlist().subscribe(response=>{
-      if(this.allProducts > 9) this.allProducts=response['products9'];
-      else this.allProducts=response['allProducts'];
+  badgeWhishlist(){
+    this.badgeService.badgeWhishlist.subscribe(badgeWhishlist =>{
+      this.allProducts = badgeWhishlist.allProducts;
     })
   }
 
-  countCart(){
-    this.cartService.getCountCart().subscribe(response=>{
-      if(this.allCartProducts > 9) this.allCartProducts=response['products9'];
-      else this.allCartProducts=response['allCartProducts'];
+  badgeCart(){
+    this.badgeService.badgeCart.subscribe(badgeCart=>{
+      this.allCartProducts = badgeCart.allCartProducts;
     })
   }
-
 
 }

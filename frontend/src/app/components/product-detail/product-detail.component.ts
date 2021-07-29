@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { BadgeService } from 'src/app/shared/services/badge.service';
 import { CartServiceService } from 'src/app/shared/services/cart-service.service';
 import { ProductServiceService } from 'src/app/shared/services/product-service.service';
 import { UserService } from 'src/app/shared/services/User.service';
@@ -23,7 +24,8 @@ export class ProductDetailComponent implements OnInit {
     private toastr: ToastrService,
     private cartService: CartServiceService,
     private userService:UserService,
-    private whishlistService:WhishlistServiceService
+    private whishlistService:WhishlistServiceService,
+    private badgeService:BadgeService
     ) { }
 
   ngOnInit(): void {
@@ -43,7 +45,8 @@ export class ProductDetailComponent implements OnInit {
       this.router.navigateByUrl('signin');
   }
   if(this.userService.loggedUser.id){ this.cartService.addToCart(id).subscribe(response=>{
-      this.toastr.success('Susscessfully added to cart');        
+      this.toastr.success('Susscessfully added to cart');       
+      this.badgeService.updateBadge(); 
   })
  }
 }
@@ -55,6 +58,7 @@ addToWhishlist(id:number){
 }
 if(this.userService.loggedUser.id){ this.whishlistService.addToWhishlist(id).subscribe(response=>{
     this.toastr.success('Susscessfully added to whishlist');        
+    this.badgeService.updateBadge();
 })}};
 }
 
