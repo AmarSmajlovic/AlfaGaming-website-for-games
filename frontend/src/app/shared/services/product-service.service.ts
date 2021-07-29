@@ -24,9 +24,7 @@ export class ProductServiceService {
     return this.http.get(`${environment.serverUrl}/getAllProducts`)
   }
 
-  // searchProduct(){
 
-  // }
 
   addProduct(product:Product){
       return this.http.post(`${environment.serverUrl}/addProduct`,product);
@@ -50,6 +48,10 @@ export class ProductServiceService {
 
   disscount20Product(){
     return this.http.get(`${environment.serverUrl}/disscount20Product`);
+  }
+
+  getLastProducts(){
+    return this.http.get(`${environment.serverUrl}/last5Products`);
   }
 
   filterProducts(params:any){

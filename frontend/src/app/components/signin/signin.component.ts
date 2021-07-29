@@ -35,7 +35,7 @@ export class SigninComponent implements OnInit {
          this.toastrService.success('Welcome!');
          delete response.password;
          localStorage.setItem('loggedUser',JSON.stringify(response))
-         this.router.navigateByUrl('home');
+         this.router.navigateByUrl('');
         }
      })
   }

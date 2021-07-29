@@ -5,24 +5,22 @@
             <button class="btn btn-outline-info" type="button" id="button-addon2" (click)="searchProduct()"><i class="fas fa-search"></i></button>
           </div>
     </div>
-    <div class="filter-products row d-flex justify-content-center">
-        <select  [(ngModel)]="platformSelected"  class="form-select m-1 w-25 col-md-3" aria-label="platform-select">
+    <div class="filter-products row d-flex">
+        <select  [(ngModel)]="platformSelected"  class="form-select m-1 col-md-3" aria-label="platform-select">
           <option selected value>Select platform</option>
             <option  *ngFor="let platform of platforms" value="{{platform.id}}">{{platform.name}}</option>
           </select>
-          <select [(ngModel)]="genreSelected" class="form-select m-1 w-25 col-md-3" aria-label="platform-select">
+          <select [(ngModel)]="genreSelected" class="form-select m-1  col-md-3" aria-label="platform-select">
             <option selected value>Select genre</option>
             <option  *ngFor="let genre of genres"  value="{{genre.id}}" >{{genre.name}}</option>
           </select>
           <div class="filter-price d-flex align-items-center col-md-3">
-            <label for="priceBetween" class="m-1">Between</label>
              <input id="priceBetween" [(ngModel)]="priceBetween" type="text" placeholder="price">
-             <label for="priceTo"  class="m-1">To</label>
              <input id="priceTo" [(ngModel)]="priceTo" type="text" placeholder="price">
         </div>
-          <button type="button" class="btn btn-outline-info filterBtn  w-25 col-md-3" (click)="filterProducts()">Filter</button>
+          <button type="button" class="btn btn-outline-info filterBtn col-md-3" (click)="filterProducts()">Filter</button>
     </div>
-      <div class="display-products mt-5 d-flex flex-wrap justify-content-center">
+      <div class="display-products mt-5 d-flex flex-wrap">
           <app-product-card  *ngFor="let item of product" [product]="item"></app-product-card>
           <div *ngIf="!product">Sorry, no result found :(
             Looks like we have no game matching your query.

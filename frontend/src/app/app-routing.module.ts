@@ -13,7 +13,7 @@ import { WhislistComponent } from './components/whishlist/whislist.component';
 import { AuthGuard } from './shared/services/AuthGuard';
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent},
+  {path:'',component:HomeComponent},
   {path:'cart',component:CartComponent},
   {path:'signin',component:SigninComponent},
   {path:'register',component:RegisterComponent},
@@ -23,6 +23,7 @@ const routes: Routes = [
   {path:'admin',component: AdminDashComponent,canActivate:[AuthGuard]},
   {path:'productDetail/:id',component: ProductDetailComponent},
   {path:'listing',component:ListingProductsComponent}
+
 ];
 
 @NgModule({

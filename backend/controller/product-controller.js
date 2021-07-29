@@ -84,6 +84,13 @@ const disscount20Product = (req,res)=>{
     })
 }
 
+const last5Products = (req,res)=>{
+    conn.query('SELECT * FROM product limit 5',(err,results)=>{
+        if(err) throw err;
+        res.status(200).json(results);
+    })
+}
+
 
 
 const filterProducts = (req,res)=>{
@@ -101,4 +108,4 @@ const filterProducts = (req,res)=>{
 
 
 
-module.exports = {getAllProducts,getProductById,getProductByGenre,getProductByPlatform,addProduct,deleteProduct,updateProduct,countProduct,disscount20Product,filterProducts,getProductByName};
+module.exports = {getAllProducts,getProductById,getProductByGenre,getProductByPlatform,addProduct,deleteProduct,updateProduct,countProduct,disscount20Product,filterProducts,getProductByName,last5Products};

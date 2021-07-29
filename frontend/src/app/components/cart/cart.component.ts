@@ -37,6 +37,7 @@ export class CartComponent implements OnInit {
    this.cartService.buyProducts().subscribe(response=>{
      this.products=response;
      this.getProductsFromCart();
+     this.badgeService.updateBadge();
    })
  }
 
@@ -46,7 +47,7 @@ export class CartComponent implements OnInit {
            this.toastr.success('Susscessfully removed from cart');
            this.products = response;
            this.getProductsFromCart();
-          
+          this.badgeService.updateBadge();
          })
         }
  }

@@ -8,7 +8,7 @@ export class AuthGuard implements CanActivate {
 
     canActivate() {
         if(this.userService.loggedUser.role !== 'ADMIN'){
-            this.router.navigateByUrl('home')
+            this.router.navigateByUrl('')
              return false;
         }
         return true;

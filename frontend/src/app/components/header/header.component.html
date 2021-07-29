@@ -1,6 +1,6 @@
 <div class="header">
     <div class="header-container">
-        <div id="naslov" routerLink="home" routerLinkActive="active"><img src="https://pbs.twimg.com/profile_images/636298294277246976/cDq4C60K.jpg" alt="logo"><span class="naslovTekst">AlfaGaming </span></div>
+        <div id="naslov" routerLink="" routerLinkActive="active"><img src="https://pbs.twimg.com/profile_images/636298294277246976/cDq4C60K.jpg" alt="logo"><span class="naslovTekst">AlfaGaming </span></div>
         <div class="nav">
             <div  class="navDivIcon icon" routerLink="listing" routerLinkActive="active"><i class="fas fs-4 fa-store"></i></div>
             <div *ngIf="userService.loggedUser.id" class="navDivIcon icon" routerLink="whishlist" routerLinkActive="active"><i class="fas fs-4 fa-heart"></i><div *ngIf="allProducts != 0" class="badge">{{allProducts}}</div><div *ngIf="allProducts != 0 && allProducts >9" class="badge">{{products9}}</div></div>
@@ -23,7 +23,7 @@
                 <li  class="navDivIcon mobIcon" routerLink="listing" routerLinkActive="active"><i class="menu-icon fas fa-store"></i> Store</li>
                 <li  *ngIf="userService.loggedUser.id" class="navDivIcon mobIcon" routerLink="cart" routerLinkActive="active"><i class="menu-icon fas fa-shopping-cart"></i> Cart<div *ngIf="allCartProducts != 0" class="badge">{{allCartProducts}}</div><div *ngIf="allCartProducts != 0 && allCartProducts >9" class="badge">{{products9}}</div></li>
                 <li *ngIf="userService.loggedUser.id" class="navDivIcon mobIcon" routerLink="whishlist" routerLinkActive="active"><i class="menu-icon fas fa-heart"></i> Whishlist<div *ngIf="allProducts != 0" class="badge">{{allProducts}}</div><div *ngIf="allProducts != 0 && allProducts >9" class="badge">{{products9}}</div></li>
-                <li ><i class="menu-icon fas fa-question-circle"></i> FAQ</li>
+                <li routerLink="support" routerLinkActive="active"><i class="menu-icon fas fa-question-circle" ></i> Support</li>
                 <li ><i class="menu-icon fas fa-palette" (click)="changeTheme()"></i> Theme : Dark</li>
                 <li *ngIf="userService.loggedUser.id" (click)="signOut()"><i class="menu-icon fas  fa-sign-out-alt"></i> Sign out</li>
         </ul>

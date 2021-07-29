@@ -25,6 +25,7 @@ import { AdminGenreComponent } from './components/admin-dash/admin-genre/admin-g
 import { AdminPlatformsComponent } from './components/admin-dash/admin-platforms/admin-platforms.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ListingProductsComponent } from './components/listing-products/listing-products.component';
+import { SupportComponent } from './components/support/support.component';
 
 
 
@@ -49,7 +50,8 @@ import { ListingProductsComponent } from './components/listing-products/listing-
     AdminGenreComponent,
     AdminPlatformsComponent,
     ProductDetailComponent,
-    ListingProductsComponent
+    ListingProductsComponent,
+    SupportComponent
   ],
   imports: [
     BrowserModule,

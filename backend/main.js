@@ -3,7 +3,7 @@ const app = express();
 const PORT = 3000;
 const cors = require('cors');
 const { getAllCustomers, getCustomerById, registrateCustomer, loginUser, deleteUser, updateUser, countUser } = require('./controller/customer-controller');
-const { getAllProducts, getProductById, getProductByGenre, getProductByPlatform, addProduct, deleteProduct, updateProduct, countProduct, disscount20Product, filterProducts, getProductByName} = require('./controller/product-controller');
+const { getAllProducts, getProductById, getProductByGenre, getProductByPlatform, addProduct, deleteProduct, updateProduct, countProduct, disscount20Product, filterProducts, getProductByName, last5Products} = require('./controller/product-controller');
 const { getAllGenre, getGenreById, deleteGenre, addGenre, updateGenre, countGenre } = require('./controller/genre-controller');
 const { getAllPlatforms, addPlatform, deletePlatform, updatePlatform, countPlatform } = require('./controller/platform-controller');
 const {addToCart, getProductsFromCart, buyProductsFromCart, removeProductFromCart, getBuyProducts, getCartCount} = require('./controller/cart-controller');
@@ -38,6 +38,7 @@ app.get('/countProduct',countProduct);
 app.get('/disscount20Product',disscount20Product);
 app.get('/filterProducts',filterProducts);
 app.get('/getProductByName',getProductByName);
+app.get('/last5Products',last5Products);
 //Product API End//
 
 //Genre API Start//

@@ -12,6 +12,10 @@
   }
 }
 
+.display-products {
+  justify-content: start;
+}
+
 .filter-price {
   font-size: 1.2em;
   input {
@@ -22,9 +26,32 @@
   }
 }
 
+.form-select {
+  width: 25%;
+}
+
 .filter-products {
+  justify-content: center;
   select {
     background-color: rgba(0, 0, 0, 0.809);
     color: gray;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .filter-products {
+    flex-direction: column;
+  }
+  .display-products {
+    justify-content: center;
+  }
+  .form-select {
+    width: 100%;
+  }
+  .input-group {
+    width: 80%;
+  }
+  .filterBtn {
+    width: 100%;
   }
 }

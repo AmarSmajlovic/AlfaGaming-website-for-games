@@ -12,12 +12,14 @@ import { Product } from '../admin-dash/admin-products/product.module';
 export class HomeComponent implements OnInit {
   @Input() product:any= [];
   products20 = [];
+  lastproducts = [];
 
   constructor(private productsService:ProductServiceService,private router:Router) { }
 
   ngOnInit(): void {
     this.getProducts();
     this.getProductsDisscount20();
+    this.getLastProducts();
   }
 
   getProducts(){
@@ -29,6 +31,12 @@ export class HomeComponent implements OnInit {
   getProductsDisscount20(){
     this.productsService.disscount20Product().subscribe((response:any)=>{
        this.products20 = response;
+    })
+  }
+
+  getLastProducts(){
+    this.productsService.getLastProducts().subscribe((response:any)=>{
+      this.lastproducts = response;
     })
   }
 
