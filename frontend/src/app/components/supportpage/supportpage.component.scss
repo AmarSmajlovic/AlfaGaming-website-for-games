@@ -1,0 +1,34 @@
+.supportContainer {
+  margin: 150px auto;
+  width: 70%;
+  font-size: 1.3em;
+  .naslov {
+    background-color: #2b2d42ff;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border: 0;
+    border-radius: 10px;
+  }
+  .question {
+    margin-top: 20px;
+    padding: 30px;
+    background-color: #8d99aeff;
+    color: red;
+    border-radius: 10px;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  .search {
+    &:hover {
+      transform: scale(1.05);
+      color: #2b2d42ff;
+    }
+  }
+}
+
+.email {
+  margin-top: 40px;
+  color: #2b2d42ff;
+}

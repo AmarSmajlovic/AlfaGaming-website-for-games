@@ -9,6 +9,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SigninComponent } from './components/signin/signin.component';
+import { SupportpageComponent } from './components/supportpage/supportpage.component';
 import { WhislistComponent } from './components/whishlist/whislist.component';
 import { AuthGuard } from './shared/services/AuthGuard';
 
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path:'profile/:id',component: ProfileComponent},
   {path:'admin',component: AdminDashComponent,canActivate:[AuthGuard]},
   {path:'productDetail/:id',component: ProductDetailComponent},
-  {path:'listing',component:ListingProductsComponent}
+  {path:'listing',component:ListingProductsComponent},
+  {path:'support',component:SupportpageComponent}
 
 ];
 

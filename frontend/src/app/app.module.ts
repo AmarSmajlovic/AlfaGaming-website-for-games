@@ -26,6 +26,7 @@ import { AdminPlatformsComponent } from './components/admin-dash/admin-platforms
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { ListingProductsComponent } from './components/listing-products/listing-products.component';
 import { SupportComponent } from './components/support/support.component';
+import { SupportpageComponent } from './components/supportpage/supportpage.component';
 
 
 
@@ -51,7 +52,8 @@ import { SupportComponent } from './components/support/support.component';
     AdminPlatformsComponent,
     ProductDetailComponent,
     ListingProductsComponent,
-    SupportComponent
+    SupportComponent,
+    SupportpageComponent
   ],
   imports: [
     BrowserModule,
