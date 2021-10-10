@@ -16,7 +16,6 @@ const getCustomerById = (req,res)=>{
 };
 
 const registrateCustomer = (req,res)=>{
-    console.log(req.body);
     const {first_name,last_name,username,email,password} = req.body;
     const sql = 'INSERT customer(first_name,last_name,email,password,username) VALUES(?,?,?,?,?)';
     conn.query(sql,[first_name,last_name,email,password,username],(err,result)=>{
